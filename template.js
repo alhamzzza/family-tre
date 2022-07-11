@@ -478,7 +478,10 @@ window.onload = function () {
           { id: 151, pid: 113, tags: ["Staff"], name: "مصعب" },
 
 
-          { id: 153, pid: 114, tags: ["Staff"], name: "سلطان" }
+          { id: 153, pid: 114, tags: ["Staff"], name: "سلطان" },
+          { id: 511, pid: 114, tags: ["Staff"], name: "عثمان" },
+          
+          { id: 512, pid: 141, tags: ["Staff"], name: "ابراهيم" },
 
       ]
   });
