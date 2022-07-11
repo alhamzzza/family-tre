@@ -119,7 +119,7 @@ window.onload = function () {
     OrgChart.templates.department = Object.assign({}, OrgChart.templates.ana);
     OrgChart.templates.department.size = [150, 50];
     OrgChart.templates.department.node =
-        '<rect x="0" y="0" width="150" height="50" fill="#639fff" stroke-width="1" stroke="#aeaeae"></rect>';
+        '<rect x="0" y="0" width="150" height="50" fill="#035691" stroke-width="1" stroke="#aeaeae"></rect>';
     OrgChart.templates.department.field_0 = '<text style="font-size: 24px;" fill="#aaaaa" x="75" y="35" text-anchor="middle">{val}</text>';
   
     OrgChart.templates.department.ripple = {
@@ -140,10 +140,22 @@ window.onload = function () {
         rect: null
     };
 
+    OrgChart.templates.torun = Object.assign({}, OrgChart.templates.ana);
+    OrgChart.templates.torun.size = [50, 100];
+    OrgChart.templates.torun.node =
+        '<rect x="0" y="0" width="50" height="100" fill="#ff9c08" stroke-width="1" stroke="#aaa"></rect>';
+    OrgChart.templates.torun.field_0 = '<text transform="rotate(90)"  style="font-size: 24px;" fill="#aaaaa" x="50" y="-15" text-anchor="middle">{val}</text>';
+  
+    OrgChart.templates.torun.ripple = {
+        radius: 0,
+        color: "#FFCA28",
+        rect: null
+    };
+
     OrgChart.templates.dead = Object.assign({}, OrgChart.templates.ana);
     OrgChart.templates.dead.size = [50, 100];
     OrgChart.templates.dead.node =
-        '<rect x="0" y="0" width="50" height="100" fill="#fc0511" stroke-width="1" stroke="#aaa"></rect>';
+        '<rect x="0" y="0" width="50" height="100" fill="#515751" stroke-width="1" stroke="#aaa"></rect>';
     OrgChart.templates.dead.field_0 = '<text transform="rotate(90)"  style="font-size: 24px;" fill="#aaaaa" x="50" y="-15" text-anchor="middle">{val}</text>';
   
     OrgChart.templates.dead.ripple = {
@@ -151,6 +163,46 @@ window.onload = function () {
         color: "#FFCA28",
         rect: null
     };
+
+    
+    OrgChart.templates.red = Object.assign({}, OrgChart.templates.ana);
+    OrgChart.templates.red.size = [50, 100];
+    OrgChart.templates.red.node =
+        '<rect x="0" y="0" width="50" height="100" fill="#e80000" stroke-width="1" stroke="#aaa"></rect>';
+    OrgChart.templates.red.field_0 = '<text transform="rotate(90)"  style="font-size: 24px;" fill="#aaaaa" x="50" y="-15" text-anchor="middle">{val}</text>';
+  
+    OrgChart.templates.red.ripple = {
+        radius: 0,
+        color: "#FFCA28",
+        rect: null
+    };
+
+    OrgChart.templates.yel = Object.assign({}, OrgChart.templates.ana);
+    OrgChart.templates.yel.size = [50, 100];
+    OrgChart.templates.yel.node =
+        '<rect x="0" y="0" width="50" height="100" fill="#eeff00" stroke-width="1" stroke="#aaa"></rect>';
+    OrgChart.templates.yel.field_0 = '<text transform="rotate(90)"  style="font-size: 24px;" fill="#aaaaa" x="50" y="-15" text-anchor="middle">{val}</text>';
+  
+    OrgChart.templates.yel.ripple = {
+        radius: 0,
+        color: "#FFCA28",
+        rect: null
+    };
+
+
+    OrgChart.templates.firstgen = Object.assign({}, OrgChart.templates.ana);
+    OrgChart.templates.firstgen.size = [50, 100];
+    OrgChart.templates.firstgen.node =
+        '<rect x="0" y="0" width="50" height="100" fill="#0fd904" stroke-width="1" stroke="#aaa"></rect>';
+    OrgChart.templates.firstgen.field_0 = '<text transform="rotate(90)"  style="font-size: 24px;" fill="#aaaaa" x="50" y="-15" text-anchor="middle">{val}</text>';
+  
+    OrgChart.templates.firstgen.ripple = {
+        radius: 0,
+        color: "#FFCA28",
+        rect: null
+    };
+
+
     OrgChart.toolbarUI.expandAllIcon = expandAllIcon;
       OrgChart.toolbarUI.zoomInIcon = zoomInIcon;
       OrgChart.toolbarUI.zoomOutIcon = zoomOutIcon;  
@@ -162,6 +214,12 @@ window.onload = function () {
     var chart = new OrgChart(document.getElementById("tree"), {
         mouseScrool: OrgChart.action.none,
     collapse: {
+        level: 4,
+        allChildren: true
+
+    },
+
+    expand: {
         level: 4,
         allChildren: true
 
@@ -200,9 +258,46 @@ window.onload = function () {
             "dead": {
                 template: "dead"
             },
-            "minimized": {
-                min: true
+            "subLevels0": {
+                subLevels: 0
+            },
+            "subLevels1": {
+                subLevels: 1
+            },
+            "subLevels2": {
+                subLevels: 2
+            },
+            "subLevels3": {
+                subLevels: 3
+            },
+            "subLevels4": {
+                subLevels: 4
+            },
+            "subLevels5": {
+                subLevels: 5
+            },
+            "subLevels6": {
+                subLevels: 6
+            },
+            "subLevels7": {
+                subLevels: 7
+            },
+            "subLevels8": {
+                subLevels: 8
+            },
+            "firstgen": {
+                template: "firstgen"
+            },
+            "red": {
+                template: "red"
             }
+            ,
+            "yel": {
+                template: "yel"
+            },
+            "torun": {
+                template: "torun"
+            },
       },
 
 
@@ -220,26 +315,31 @@ window.onload = function () {
 
           { id: 4, pid: 2, tags: ["Staff"] ,name: "ابو درغام" },
           { id: 5, pid: 2, tags: ["Staff"], name: "عليوي" },
-          { id: 6, pid: 2, tags: ["Staff"], name: "عبيد" },
+          { id: 6, pid: 2, tags: ["Staff"], name: "احمد" },
 
           { id: 7, pid: 4, tags: ["dead"], name: "درغام" },
 
           { id: 8, pid: 3, tags: ["Staff"], name: "TO DO" },
 
-          { id: 9, pid: 6, tags: ["Staff"], name: "TO DO" },
+          { id: 9, pid: 6, tags: ["yel"], name: "عبيد" },
+
+          { id: 513, pid: 9, tags: ["firstgen"], name: "احمد" },
+          { id: 514, pid: 9, tags: ["firstgen"], name: "محمد" },
+          { id: 515, pid: 9, tags: ["firstgen"], name: "حمود" },
 
 
-          { id: 10, pid: 5, tags: ["Staff"], name: "محمود" },
-          { id: 11, pid: 5, tags: ["Staff" , "minimized"], name: "حمود" },
-          { id: 13, pid: 5, tags: ["dead"], name: "حسين" },
-          { id: 12, pid: 5, tags: ["Staff"], name: "ابراهيم" },
 
-          { id: 14, pid: 12, tags: ["Staff"], name: "محمد" },
+          { id: 10, pid: 5, tags: ["yel" , "subLevels3"], name: "محمود" },
+          { id: 11, pid: 5, tags: ["yel" , "subLevels2"], name: "حمود" },
+          { id: 13, pid: 5, tags: ["dead" , "subLevels0"], name: "حسين" },
+          { id: 12, pid: 5, tags: ["yel", "subLevels1"], name: "ابراهيم" },
 
-          { id: 15, pid: 14, tags: ["Staff"], name: "قاسم" },
-          { id: 16, pid: 14, tags: ["Staff"], name: "حسن" },
-          { id: 17, pid: 14, tags: ["Staff"], name: "علي" },
-          { id: 18, pid: 14, tags: ["Staff"], name: "ابراهيم" },
+          { id: 14, pid: 12, tags: ["firstgen"], name: "محمد" },
+
+          { id: 15, pid: 14, tags: ["red" , "subLevels1"], name: "قاسم" },
+          { id: 16, pid: 14, tags: ["red" , "subLevels0"], name: "حسن" },
+          { id: 17, pid: 14, tags: ["red" , "subLevels0"], name: "علي" },
+          { id: 18, pid: 14, tags: ["red", "subLevels0"], name: "ابراهيم" },
 
           { id: 19, pid: 15, tags: ["Staff"], name: "ماهر" },
           { id: 20, pid: 15, tags: ["Staff"], name: "محمد" },
@@ -247,7 +347,7 @@ window.onload = function () {
           { id: 22, pid: 15, tags: ["Staff"], name: "الحمزة" },
           { id: 503, pid: 15, tags: ["Staff"], name: "حسن" },
 
-          { id: 23, pid: 20, tags: ["Staff"], name: "مصعب" },
+          { id: 23, pid: 20, tags: ["torun"], name: "مصعب" },
 
 
           { id: 24, pid: 16, tags: ["Staff"], name: "وسام" },
@@ -263,14 +363,14 @@ window.onload = function () {
           
 
 
-          { id: 32, pid: 11, tags: ["Staff"], name: "علي" },
-          { id: 33, pid: 11, tags: ["Staff"], name: "عليوي" },
-          { id: 154, pid: 11, tags: ["Staff"], name: "عقلة" },
+          { id: 32, pid: 11, tags: ["firstgen" , "subLevels2"], name: "علي" },
+          { id: 33, pid: 11, tags: ["firstgen"  , "subLevels1"], name: "عليوي" },
+          { id: 154, pid: 11, tags: ["firstgen"  , "subLevels0"], name: "عقلة" },
 
-          { id: 155, pid: 154, tags: ["Staff"], name: "محمد" },
-          { id: 156, pid: 154, tags: ["Staff"], name: "عبود" },
-          { id: 157, pid: 154, tags: ["Staff"], name: "عبدو" },
-          { id: 158, pid: 154, tags: ["Staff"], name: "فواز" },
+          { id: 155, pid: 154, tags: ["red"], name: "محمد" },
+          { id: 156, pid: 154, tags: ["red"], name: "عبود" },
+          { id: 157, pid: 154, tags: ["red"], name: "عبدو" },
+          { id: 158, pid: 154, tags: ["red"], name: "فواز" },
 
           { id: 159, pid: 155, tags: ["Staff"], name: "عمار" },
           { id: 160, pid: 155, tags: ["Staff"], name: "عبود" },
@@ -286,14 +386,14 @@ window.onload = function () {
 
 
 
-          { id: 34, pid: 32, tags: ["Staff"], name: "احمد" },
-          { id: 35, pid: 32, tags: ["Staff"], name: "حمود" },
-          { id: 36, pid: 32, tags: ["Staff"], name: "عبود" },
-          { id: 37, pid: 32, tags: ["Staff"], name: "محمد" },
-          { id: 38, pid: 32, tags: ["Staff"], name: "حسين" },
+          { id: 34, pid: 32, tags: ["red"], name: "احمد" },
+          { id: 35, pid: 32, tags: ["red"], name: "حمود" },
+          { id: 36, pid: 32, tags: ["red"], name: "عبود" },
+          { id: 37, pid: 32, tags: ["red"], name: "محمد" },
+          { id: 38, pid: 32, tags: ["red", "subLevels2"], name: "حسين" },
 
 
-          { id: 39, pid: 33, tags: ["Staff"], name: "اسماعيل" },
+          { id: 39, pid: 33, tags: ["red"], name: "اسماعيل" },
           { id: 40, pid: 33, tags: ["dead"], name: "عبد" },
           { id: 41, pid: 33, tags: ["dead"], name: "ابراهيم" },
           { id: 42, pid: 33, tags: ["dead"], name: "خليل" },
@@ -325,9 +425,9 @@ window.onload = function () {
           { id: 55, pid: 38, tags: ["Staff"], name: "منيار" },
           { id: 56, pid: 38, tags: ["Staff"], name: "علي" },
 
-          { id: 57, pid: 56, tags: ["Staff"], name: "عبود" },
+          { id: 57, pid: 56, tags: ["torun"], name: "عبود" },
           
-          { id: 504, pid: 55, tags: ["Staff"], name: "علي" },
+          { id: 504, pid: 55, tags: ["torun"], name: "علي" },
 
 
           
@@ -335,9 +435,9 @@ window.onload = function () {
           { id: 59, pid: 39, tags: ["Staff"], name: "هايل" },
           { id: 60, pid: 39, tags: ["Staff"], name: "فواز" },
 
-          { id: 500, pid: 60, tags: ["Staff"], name: "اسماعيل" },
+          { id: 500, pid: 60, tags: ["torun"], name: "اسماعيل" },
 
-          { id: 501, pid: 59, tags: ["Staff"], name: "نصر" },
+          { id: 501, pid: 59, tags: ["torun"], name: "نصر" },
 
 
          
@@ -346,14 +446,14 @@ window.onload = function () {
 
 
 
-          { id: 61, pid: 10, tags: ["Staff"], name: "شعبان" },
-          { id: 62, pid: 10, tags: ["Staff"], name: "رمضان" },
-          { id: 63, pid: 10, tags: ["Staff"], name: "عاشور" },
-          { id: 64, pid: 10, tags: ["Staff"], name: "سليمان" },
+          { id: 61, pid: 10, tags: [ "subLevels1" , "firstgen"], name: "شعبان" },
+          { id: 62, pid: 10, tags: ["firstgen", "subLevels0"], name: "رمضان" },
+          { id: 63, pid: 10, tags: ["firstgen", "subLevels2"], name: "عاشور" },
+          { id: 64, pid: 10, tags: ["firstgen", "subLevels3"], name: "سليمان" },
           
-          { id: 65, pid: 61, tags: ["Staff"], name: "خالد" },
-          { id: 66, pid: 61, tags: ["Staff"], name: "ثامر" },
-          { id: 67, pid: 61, tags: ["Staff"], name: "عبد العزيز" },
+          { id: 65, pid: 61, tags: ["red"], name: "خالد" },
+          { id: 66, pid: 61, tags: ["red"], name: "ثامر" },
+          { id: 67, pid: 61, tags: ["red"], name: "عبد العزيز" },
 
           { id: 68, pid: 65, tags: ["Staff"], name: "غازي" },
           { id: 69, pid: 65, tags: ["Staff"], name: "فيصل" },
@@ -365,14 +465,14 @@ window.onload = function () {
           { id: 75, pid: 65, tags: ["Staff"], name: "محمد" },
           { id: 76, pid: 65, tags: ["Staff"], name: "حمزة" },
 
-          { id: 77, pid: 69, tags: ["Staff"], name: "عمار" },
-           { id: 508, pid: 69, tags: ["Staff"], name: "خالد" },
+          { id: 77, pid: 69, tags: ["torun"], name: "عمار" },
+           { id: 508, pid: 69, tags: ["torun"], name: "خالد" },
 
-          { id: 509, pid: 69, tags: ["Staff"], name: "محمد" },
+          { id: 509, pid: 69, tags: ["torun"], name: "محمد" },
 
-          { id: 510, pid: 69, tags: ["Staff"], name: "عبد الحميد" },
+          { id: 510, pid: 69, tags: ["torun"], name: "عبد الحميد" },
 
-          { id: 78, pid: 75, tags: ["Staff"], name: "خالد" },
+          { id: 78, pid: 75, tags: ["torun"], name: "خالد" },
 
           { id: 79, pid: 66, tags: ["Staff"], name: "فادي" },
           { id: 80, pid: 66, tags: ["Staff"], name: "محمد" },
@@ -383,8 +483,8 @@ window.onload = function () {
           { id: 84, pid: 67, tags: ["Staff"], name: "محمد" },
           { id: 85, pid: 67, tags: ["Staff"], name: "امجد" },
 
-          { id: 86, pid: 62, tags: ["Staff"], name: "احمد" },
-          { id: 87, pid: 62, tags: ["Staff"], name: "محمد" },
+          { id: 86, pid: 62, tags: ["red"], name: "احمد" },
+          { id: 87, pid: 62, tags: ["red"], name: "محمد" },
 
           { id: 88, pid: 86, tags: ["Staff"], name: "محمد" },
 
@@ -393,10 +493,10 @@ window.onload = function () {
           { id: 91, pid: 87, tags: ["Staff"], name: "رمضان" },
 
 
-          { id: 92, pid: 63, tags: ["Staff"], name: "عبد الحميد" },
-          { id: 93, pid: 63, tags: ["Staff"], name: "مصعب" },
-          { id: 94, pid: 63, tags: ["Staff"], name: "محمود" },
-          { id: 95, pid: 63, tags: ["Staff"], name: "محمد" },
+          { id: 92, pid: 63, tags: ["red"], name: "عبد الحميد" },
+          { id: 93, pid: 63, tags: ["red"], name: "مصعب" },
+          { id: 94, pid: 63, tags: ["red"], name: "محمود" },
+          { id: 95, pid: 63, tags: ["red"], name: "محمد" },
 
 
           { id: 96, pid: 92, tags: ["Staff"], name: "يوسف" },
@@ -416,14 +516,14 @@ window.onload = function () {
 
 
 
-          { id: 107, pid: 64, tags: ["Staff"], name: "محمود" },
-          { id: 108, pid: 64, tags: ["Staff"], name: "هشام" },
-          { id: 109, pid: 64, tags: ["Staff"], name: "محمد" },
-          { id: 110, pid: 64, tags: ["Staff"], name: "مجيد" },
-          { id: 111, pid: 64, tags: ["Staff"], name: "احمد" },
-          { id: 112, pid: 64, tags: ["Staff"], name: "ابراهيم" },
-          { id: 113, pid: 64, tags: ["Staff"], name: "حميد" },
-          { id: 114, pid: 64, tags: ["Staff"], name: "بشار" },
+          { id: 107, pid: 64, tags: ["red"], name: "محمود" },
+          { id: 108, pid: 64, tags: ["red"], name: "هشام" },
+          { id: 109, pid: 64, tags: ["red"], name: "محمد" },
+          { id: 110, pid: 64, tags: ["red"], name: "مجيد" },
+          { id: 111, pid: 64, tags: ["red"], name: "احمد" },
+          { id: 112, pid: 64, tags: ["red"], name: "ابراهيم" },
+          { id: 113, pid: 64, tags: ["red"], name: "حميد" },
+          { id: 114, pid: 64, tags: ["red"], name: "بشار" },
 
 
           { id: 115, pid: 107, tags: ["Staff"], name: "محمد" },
@@ -436,8 +536,8 @@ window.onload = function () {
           { id: 120, pid: 109, tags: ["Staff"], name: "ياسر" },
 
 
-          { id: 121, pid: 120, tags: ["Staff"], name: "محمد" },
-          { id: 122, pid: 120, tags: ["Staff"], name: "سليمان" },
+          { id: 121, pid: 120, tags: ["torun"], name: "محمد" },
+          { id: 122, pid: 120, tags: ["torun"], name: "سليمان" },
 
           { id: 123, pid: 110, tags: ["Staff"], name: "ليث" },
           { id: 124, pid: 110, tags: ["Staff"], name: "هشام" },
@@ -454,14 +554,14 @@ window.onload = function () {
           { id: 133, pid: 111, tags: ["Staff"], name: "عماد" },
 
 
-          { id: 134, pid: 129, tags: ["Staff"], name: "ايهم" },
+          { id: 134, pid: 129, tags: ["torun"], name: "ايهم" },
 
-          { id: 135, pid: 132, tags: ["Staff"], name: "بلال" },
-          { id: 136, pid: 132, tags: ["Staff"], name: "محمد" },
-          { id: 137, pid: 132, tags: ["Staff"], name: "احمد" },
+          { id: 135, pid: 132, tags: ["torun"], name: "بلال" },
+          { id: 136, pid: 132, tags: ["torun"], name: "محمد" },
+          { id: 137, pid: 132, tags: ["torun"], name: "احمد" },
 
-          { id: 138, pid: 133, tags: ["Staff"], name: "عمر" },
-          { id: 139, pid: 133, tags: ["Staff"], name: "يحيى" },
+          { id: 138, pid: 133, tags: ["torun"], name: "عمر" },
+          { id: 139, pid: 133, tags: ["torun"], name: "يحيى" },
 
           { id: 140, pid: 112, tags: ["Staff"], name: "عبادة" },
           { id: 141, pid: 112, tags: ["Staff"], name: "قتيبة" },
@@ -481,7 +581,7 @@ window.onload = function () {
           { id: 153, pid: 114, tags: ["Staff"], name: "سلطان" },
           { id: 511, pid: 114, tags: ["Staff"], name: "عثمان" },
           
-          { id: 512, pid: 141, tags: ["Staff"], name: "ابراهيم" },
+          { id: 512, pid: 141, tags: ["torun"], name: "ابراهيم" },
 
       ]
   });
