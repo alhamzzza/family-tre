@@ -366,11 +366,11 @@ window.onload = function () {
           { id: 76, pid: 65, tags: ["Staff"], name: "حمزة" },
 
           { id: 77, pid: 69, tags: ["Staff"], name: "عمار" },
-           { id: 505, pid: 69, tags: ["Staff"], name: "خالد" },
+           { id: 508, pid: 69, tags: ["Staff"], name: "خالد" },
 
-          { id: 506, pid: 69, tags: ["Staff"], name: "محمد" },
+          { id: 509, pid: 69, tags: ["Staff"], name: "محمد" },
 
-          { id: 507, pid: 69, tags: ["Staff"], name: "عبد الحميد" },
+          { id: 510, pid: 69, tags: ["Staff"], name: "عبد الحميد" },
 
           { id: 78, pid: 75, tags: ["Staff"], name: "خالد" },
 
