@@ -329,7 +329,7 @@ window.onload = function () {
 
 
 
-          { id: 10, pid: 5, tags: ["yel" , "subLevels3"], name: "محمود" },
+          { id: 10, pid: 5, tags: ["yel" , "subLevels6"], name: "محمود" },
           { id: 11, pid: 5, tags: ["yel" , "subLevels2"], name: "حمود" },
           { id: 13, pid: 5, tags: ["dead" , "subLevels0"], name: "حسين" },
           { id: 12, pid: 5, tags: ["yel", "subLevels1"], name: "ابراهيم" },
@@ -388,9 +388,9 @@ window.onload = function () {
 
           { id: 34, pid: 32, tags: ["red"], name: "احمد" },
           { id: 35, pid: 32, tags: ["red"], name: "حمود" },
-          { id: 36, pid: 32, tags: ["red"], name: "عبود" },
+          { id: 36, pid: 32, tags: ["red" , "subLevels1"], name: "عبود" },
           { id: 37, pid: 32, tags: ["red"], name: "محمد" },
-          { id: 38, pid: 32, tags: ["red", "subLevels2"], name: "حسين" },
+          { id: 38, pid: 32, tags: ["red", "subLevels1"], name: "حسين" },
 
 
           { id: 39, pid: 33, tags: ["red"], name: "اسماعيل" },
@@ -451,7 +451,7 @@ window.onload = function () {
           { id: 63, pid: 10, tags: ["firstgen", "subLevels2"], name: "عاشور" },
           { id: 64, pid: 10, tags: ["firstgen", "subLevels3"], name: "سليمان" },
           
-          { id: 65, pid: 61, tags: ["red"], name: "خالد" },
+          { id: 65, pid: 61, tags: ["red" , "subLevels1"], name: "خالد" },
           { id: 66, pid: 61, tags: ["red"], name: "ثامر" },
           { id: 67, pid: 61, tags: ["red"], name: "عبد العزيز" },
 
