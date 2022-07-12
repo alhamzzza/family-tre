@@ -227,14 +227,14 @@ window.onload = function () {
     var chart = new OrgChart(document.getElementById("tree"), {
         mouseScrool: OrgChart.action.none,
     collapse: {
-        level: 3,
-        allChildren: true
+        level: 7,
+        //allChildren: true
 
     },
 
     expand: {
         level: 4,
-        allChildren: true
+        //allChildren: true
 
     },
         nodeBinding: {
@@ -476,7 +476,7 @@ window.onload = function () {
           { id: 61, pid: 10, tags: [ "subLevels1" , "firstgen"], name: "شعبان" },
           { id: 62, pid: 10, tags: ["firstgen", "subLevels0"], name: "رمضان" },
           { id: 63, pid: 10, tags: ["firstgen", "subLevels2"], name: "عاشور" },
-          { id: 64, pid: 10, tags: ["firstgen", "subLevels3"], name: "سليمان" },
+          { id: 64, pid: 10, tags: ["firstgen", "subLevels5"], name: "سليمان" },
           
           { id: 65, pid: 61, tags: ["red" , "subLevels1"], name: "خالد" },
           { id: 66, pid: 61, tags: ["red"], name: "ثامر" },
@@ -547,8 +547,8 @@ window.onload = function () {
           { id: 108, pid: 64, tags: ["red"], name: "هشام" },
           { id: 109, pid: 64, tags: ["red"], name: "محمد" },
           { id: 110, pid: 64, tags: ["red"], name: "مجيد" },
-          { id: 111, pid: 64, tags: ["red" , "subLevels2"], name: "احمد" },
-          { id: 112, pid: 64, tags: ["red" , "subLevels1"], name: "ابراهيم" },
+          { id: 111, pid: 64, tags: ["red" , "subLevels3"], name: "احمد" },
+          { id: 112, pid: 64, tags: ["red" , "subLevels2"], name: "ابراهيم" },
           { id: 113, pid: 64, tags: ["red" , "subLevels1" ], name: "حميد" },
           { id: 114, pid: 64, tags: ["red"], name: "بشار" },
 
@@ -627,14 +627,14 @@ window.onload = function () {
           { id: 1005, pid: 1004, tags: ["yel"], name: "ابراهيم" },
 
           { id: 1006, pid: 1001, tags: ["yel"], name: "احمد" },
-          { id: 1007, pid: 1001, tags: ["yel"], name: "عبدو" },
+          { id: 1007, pid: 1001, tags: ["yel" , "subLevels2"], name: "عبدو" },
           { id: 1008, pid: 1001, tags: ["yel"], name: "عبد الكريم" },
 
           { id: 1009, pid: 1003, tags: ["yel"], name: "فيصل" },
 
-          { id: 1010, pid: 1002, tags: ["yel"], name: "ابراهيم" },
+          { id: 1010, pid: 1002, tags: ["yel" , "subLevels1"], name: "ابراهيم" },
           { id: 1011, pid: 1002, tags: ["yel"], name: "حمود" },
-          { id: 1012, pid: 1002, tags: ["yel"], name: "اكس" },
+          { id: 1012, pid: 1002, tags: ["yel"], name: "علاوي" },
 
           { id: 1013, pid: 1006, tags: ["firstgen"], name: "عبد القادر" },
           { id: 1014, pid: 1006, tags: ["firstgen"], name: "عبد المنعم" },
@@ -652,7 +652,7 @@ window.onload = function () {
 
           { id: 1022, pid: 1009, tags: ["firstgen"], name: "محمد" },
           { id: 1023, pid: 1009, tags: ["firstgen"], name: "احمد" },
-          { id: 1024, pid: 1009, tags: ["firstgen"], name: "اكس" },
+          { id: 1024, pid: 1009, tags: ["firstgen"], name: "دعاس" },
 
 
           { id: 1025, pid: 1005, tags: ["firstgen"], name: "اكس" },
@@ -666,7 +666,7 @@ window.onload = function () {
           { id: 1032, pid: 1010, tags: ["firstgen"], name: "محمد" },
 
           { id: 1033, pid: 1012, tags: ["firstgen"], name: "فيصل" },
-          { id: 1034, pid: 1012, tags: ["firstgen"], name: "اكس" },
+          { id: 1034, pid: 1012, tags: ["firstgen"], name: "محمد ياسر" },
 
           { id: 1035, pid: 1011, tags: ["firstgen"], name: "تركي" },
           { id: 1036, pid: 1011, tags: ["firstgen"], name: "محمد" },
