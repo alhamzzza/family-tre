@@ -127,11 +127,24 @@ window.onload = function () {
         color: "#F57C00",
         rect: null
     };
+
+
+    OrgChart.templates.grand = Object.assign({}, OrgChart.templates.ana);
+    OrgChart.templates.grand.size = [150, 50];
+    OrgChart.templates.grand.node =
+        '<rect x="0" y="0" width="150" height="50" fill="#458bed" stroke-width="1" stroke="#aeaeae"></rect>';
+    OrgChart.templates.grand.field_0 = '<text style="font-size: 24px;" fill="#aaaaa" x="75" y="35" text-anchor="middle">{val}</text>';
+  
+    OrgChart.templates.grand.ripple = {
+        radius: 0,
+        color: "#F57C00",
+        rect: null
+    };
   
     OrgChart.templates.staff = Object.assign({}, OrgChart.templates.ana);
     OrgChart.templates.staff.size = [50, 100];
     OrgChart.templates.staff.node =
-        '<rect x="0" y="0" width="50" height="100" fill="#639fff" stroke-width="1" stroke="#aaa"></rect>';
+        '<rect x="0" y="0" width="50" height="100" fill="#74cef7" stroke-width="1" stroke="#aaa"></rect>';
     OrgChart.templates.staff.field_0 = '<text transform="rotate(90)"  style="font-size: 24px;" fill="#aaaaa" x="50" y="-15" text-anchor="middle">{val}</text>';
   
     OrgChart.templates.staff.ripple = {
@@ -214,7 +227,7 @@ window.onload = function () {
     var chart = new OrgChart(document.getElementById("tree"), {
         mouseScrool: OrgChart.action.none,
     collapse: {
-        level: 4,
+        level: 3,
         allChildren: true
 
     },
@@ -251,6 +264,9 @@ window.onload = function () {
             },
             "Department": {
                 template: "department"
+            },
+            "grand": {
+                template: "grand"
             },
             "Staff": {
                 template: "staff"
@@ -298,6 +314,13 @@ window.onload = function () {
             "torun": {
                 template: "torun"
             },
+            "ig": {
+            template: "invisibleGroup",
+            subTreeConfig: {
+                orientation: OrgChart.orientation.bottom
+            }
+        }
+            
       },
 
 
@@ -306,20 +329,24 @@ window.onload = function () {
 
       
       nodes: [
+            { id: "root", tags: ["ig"] },
+
    
-          { id: 1, tags: ["Company" ], name: "حمود", },
+          { id: 1, tags: ["Company" ], name: "حمود", stpid : "root" },
 
-          { id: 2, tags: ["Department"], pid: 1, name: "ابراهيم", },
-          { id: 3, pid: 1, tags: ["Department"],name: "احمد",  },
+          { id: 2, tags: ["Department"], pid: "root", name: "مرعي", },
+          { id: 3, pid: 1, tags: ["Department"],name: "علي",  },
 
 
-          { id: 4, pid: 2, tags: ["Staff"] ,name: "ابو درغام" },
-          { id: 5, pid: 2, tags: ["Staff"], name: "عليوي" },
-          { id: 6, pid: 2, tags: ["Staff"], name: "احمد" },
+          { id: 4, pid: 2, tags: ["grand"] ,name: "محمد ابو درغام" },
+          { id: 777, pid: 2, tags: ["grand"] ,name: "ابراهيم" },
+
+
+          { id: 5, pid: 777, tags: ["Staff"], name: "عليوي" },
+          { id: 6, pid: 777, tags: ["Staff"], name: "احمد" },
 
           { id: 7, pid: 4, tags: ["dead"], name: "درغام" },
 
-          { id: 8, pid: 3, tags: ["Staff"], name: "TO DO" },
 
           { id: 9, pid: 6, tags: ["yel"], name: "عبيد" },
 
@@ -520,9 +547,9 @@ window.onload = function () {
           { id: 108, pid: 64, tags: ["red"], name: "هشام" },
           { id: 109, pid: 64, tags: ["red"], name: "محمد" },
           { id: 110, pid: 64, tags: ["red"], name: "مجيد" },
-          { id: 111, pid: 64, tags: ["red"], name: "احمد" },
-          { id: 112, pid: 64, tags: ["red"], name: "ابراهيم" },
-          { id: 113, pid: 64, tags: ["red"], name: "حميد" },
+          { id: 111, pid: 64, tags: ["red" , "subLevels2"], name: "احمد" },
+          { id: 112, pid: 64, tags: ["red" , "subLevels1"], name: "ابراهيم" },
+          { id: 113, pid: 64, tags: ["red" , "subLevels1" ], name: "حميد" },
           { id: 114, pid: 64, tags: ["red"], name: "بشار" },
 
 
@@ -582,6 +609,71 @@ window.onload = function () {
           { id: 511, pid: 114, tags: ["Staff"], name: "عثمان" },
           
           { id: 512, pid: 141, tags: ["torun"], name: "ابراهيم" },
+
+
+
+
+          ////////////////////
+          // سخاني حلب
+          //////////
+
+          { id: 1000, pid: 3, tags: ["grand"], name: "حمود" },
+
+          { id: 1001, pid: 1000, tags: ["Staff"], name: "علي" },
+          { id: 1002, pid: 1000, tags: ["Staff"], name: "عبد الهادي" },
+          { id: 1003, pid: 1000, tags: ["Staff"], name: "دعاس" },
+          { id: 1004, pid: 1000, tags: ["Staff"], name: "عبد الله" },
+
+          { id: 1005, pid: 1004, tags: ["yel"], name: "ابراهيم" },
+
+          { id: 1006, pid: 1001, tags: ["yel"], name: "احمد" },
+          { id: 1007, pid: 1001, tags: ["yel"], name: "عبدو" },
+          { id: 1008, pid: 1001, tags: ["yel"], name: "عبد الكريم" },
+
+          { id: 1009, pid: 1003, tags: ["yel"], name: "فيصل" },
+
+          { id: 1010, pid: 1002, tags: ["yel"], name: "ابراهيم" },
+          { id: 1011, pid: 1002, tags: ["yel"], name: "حمود" },
+          { id: 1012, pid: 1002, tags: ["yel"], name: "اكس" },
+
+          { id: 1013, pid: 1006, tags: ["firstgen"], name: "عبد القادر" },
+          { id: 1014, pid: 1006, tags: ["firstgen"], name: "عبد المنعم" },
+
+
+          { id: 1015, pid: 1007, tags: ["firstgen"], name: "محمد" },
+          { id: 1016, pid: 1007, tags: ["firstgen"], name: "عدنان" },
+          { id: 1017, pid: 1007, tags: ["firstgen"], name: "علاء" },
+          { id: 1018, pid: 1007, tags: ["firstgen"], name: "عادل" },
+          { id: 1019, pid: 1007, tags: ["firstgen"], name: "مروان" },
+
+
+          { id: 1020, pid: 1008, tags: ["firstgen"], name: "عبد العزيز" },
+          { id: 1021, pid: 1008, tags: ["firstgen"], name: "عبد الحميد" },
+
+          { id: 1022, pid: 1009, tags: ["firstgen"], name: "محمد" },
+          { id: 1023, pid: 1009, tags: ["firstgen"], name: "احمد" },
+          { id: 1024, pid: 1009, tags: ["firstgen"], name: "اكس" },
+
+
+          { id: 1025, pid: 1005, tags: ["firstgen"], name: "اكس" },
+          { id: 1026, pid: 1005, tags: ["firstgen"], name: "اكس" },
+
+          { id: 1027, pid: 1010, tags: ["firstgen"], name: "عبد الهادي" },
+          { id: 1028, pid: 1010, tags: ["firstgen"], name: "خالد" },
+          { id: 1029, pid: 1010, tags: ["firstgen"], name: "وليد" },
+          { id: 1030, pid: 1010, tags: ["firstgen"], name: "محمود" },
+          { id: 1031, pid: 1010, tags: ["firstgen"], name: "علاء" },
+          { id: 1032, pid: 1010, tags: ["firstgen"], name: "محمد" },
+
+          { id: 1033, pid: 1012, tags: ["firstgen"], name: "فيصل" },
+          { id: 1034, pid: 1012, tags: ["firstgen"], name: "اكس" },
+
+          { id: 1035, pid: 1011, tags: ["firstgen"], name: "تركي" },
+          { id: 1036, pid: 1011, tags: ["firstgen"], name: "محمد" },
+          { id: 1037, pid: 1011, tags: ["firstgen"], name: "فاضل" },
+          
+
+
 
       ]
   });
